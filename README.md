@@ -1,1 +1,1 @@
-# The vim config file for the neoviom
+# The vim config file for the neovim
