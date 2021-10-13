@@ -1,4 +1,4 @@
-"baseconfig
+"baseconfig---------------------------------------------------------------
 let mapleader=" "
 set relativenumber
 set number	
@@ -30,18 +30,18 @@ filetype plugin indent on
 nnoremap tt :NERDTree<CR>
 nnoremap ge <C-o>
 inoremap <silent><expr> <c-space> coc#refresh()
-inoremap df <Esc>
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 nnoremap <leader>< viw<esc>a><esc>hbi<<esc>lel
 map <LEADER>l :set splitright<CR>:vsplit<CR>
+map <LEADER>H :set nosplitright<CR>:vsplit<CR>
 map <LEADER>k :set nosplitbelow<CR>:split<CR>
-map <LEADER>h :set nosplitright<CR>:vsplit<CR>
 map <LEADER>j :set splitbelow<CR>:split<CR>
 map <LEADER>wh <C-w>h
 map <LEADER>wl <C-w>l
 map <LEADER>wj <C-w>j
 map <LEADER>wk <C-w>k
+tnoremap <LEADER>e <C-\><C-N>
 nnoremap H :vertical resize-5<CR>
 nnoremap L :vertical resize+5<CR>
 nnoremap cj <C-w>H
@@ -51,7 +51,7 @@ set foldmethod=syntax
 set nofoldenable
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
-nnoremap tr :CocCommand translator.popup<CR>
+"BaseConfig-------------------------------------------------------------------
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -84,9 +84,6 @@ let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
 let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
 let g:ale_c_cppcheck_options = ''
 let g:ale_cpp_cppcheck_options = ''
-let -coc#rpc#ready {
-	'coc-json','coc-java','coc-python','coc-pyright','coc-html','coc-list','coc-translator','coc-vimlsp','coc-clangd'
-	}
 
 "NERDTree
 let NERDTreeWinPos="left"
@@ -121,7 +118,7 @@ endfunction
 "file_title
 set completeopt=menu,menuone
 
-"Plug 'vim-gutentags'
+"Plug vim-gutentags---------------------------------------------------------
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 let g:gutentags_ctags_tagfile = '.tags'
 let s:vim_tags = expand('~/.cache/tags')
@@ -132,8 +129,15 @@ let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')
 endif
-"Plug 'vim-gutentags'
-
+"vim-gutentags-----------------------------------------------------------------
+"
+"config for vim-translator-------------------------------------------------
+let g:translator_default_engines = ['youdao','bing']
+let g:translator_window_type = 'popup'
+nmap <silent> tr <Plug>TranslateW
+vmap <silent> <LEADER>tr <Plug>TranslateV
+"config for
+"vim-translator-------------------------------------------------------------------------
 "Plug 'skywind3000/asyncrun.vim'
 let g:asyncrun_open = 6
 nnoremap <F3> :call asyncrun#quickfix_toggle(6)<cr>
@@ -146,6 +150,7 @@ let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml']
 "let g:Lf_PreviewInPopup = 1
 
 
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'connorholyday/vim-snazzy'
@@ -155,7 +160,7 @@ Plug 'preservim/nerdtree',{ 'on':  'NERDTreeToggle' }
 Plug 'preservim/nerdcommenter'
 Plug 'neoclide/coc.nvim'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'vim-autoformat/vim-autoformat'
+"Plug 'vim-autoformat/vim-autoformat'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mhinz/vim-signify'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
@@ -164,8 +169,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
 Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
-"Plug 'nathanaelkane/vim-indent-guides'
-
+Plug 'puremourning/vimspector',{'do': './install_gadget.py --enable-python --enable-c --enable-java'}
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'voldikss/vim-translator'
 
 call plug#end()
 color snazzy

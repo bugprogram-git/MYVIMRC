@@ -1,35 +1,16 @@
 {
-	"coc.preferences.extensionUpdateCheck": "daily",
+	"coc.preferences.extensionUpdateCheck":"daily",
+	"coc.preferences.formatOnSaveFiletypes": ["c","cpp","java"],
 	"languageserver": {
 		"clangd": {
 			"command": "clangd",
-			"rootPatterns": ["compile_flags.txt", "compile_commands.json","root",".git",".svn"],
+			"rootPatterns": ["compile_flags.txt", "compile_commands.json",".git",".svn",".root"],
 			"filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
 		},
 		"dockerfile": {
 			"command": "docker-langserver",
 			"filetypes": ["dockerfile"],
 			"args": ["--stdio"]
-		},
-		"cmake": {
-			"command": "cmake-language-server",
-			"filetypes": ["cmake"],
-			"rootPatterns": [
-				"build/"
-			],
-			"initializationOptions": {
-				"buildDirectory": "build"
-			}
-		},
-		"bash": {
-			"command": "bash-language-server",
-			"args": ["start"],
-			"filetypes": ["sh"]
-		},
-		"sql": {
-			"command": "sql-language-server",
-			"args" : ["up", "--method", "stdio"],
-			"filetypes": ["sql", "mysql"]
 		}
 	}
 }
