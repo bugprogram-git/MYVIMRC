@@ -1,16 +1,35 @@
 {
-	"coc.preferences.extensionUpdateCheck":"daily",
-	"coc.preferences.formatOnSaveFiletypes": ["c","cpp","java"],
+	"coc.preferences.extensionUpdateCheck": "daily",
+	"coc.preferences.formatOnSaveFiletypes": [
+		"json"
+	],
 	"languageserver": {
 		"clangd": {
 			"command": "clangd",
-			"rootPatterns": ["compile_flags.txt", "compile_commands.json",".git",".svn",".root"],
-			"filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+			"rootPatterns": [
+				"compile_flags.txt",
+				"compile_commands.json",
+				".git",
+				".svn",
+				".root"
+			],
+			"filetypes": [
+				"c",
+				"cc",
+				"cpp",
+				"c++",
+				"objc",
+				"objcpp"
+			]
 		},
 		"dockerfile": {
 			"command": "docker-langserver",
-			"filetypes": ["dockerfile"],
-			"args": ["--stdio"]
+			"filetypes": [
+				"dockerfile"
+			],
+			"args": [
+				"--stdio"
+			]
 		}
 	}
 }
